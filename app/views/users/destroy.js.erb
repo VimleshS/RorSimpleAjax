@@ -1,0 +1,4 @@
+<!-- $("<%= escape_javascript(render @user) %>").appendTo("#userbody"); -->
+$('.delete_user').bind('ajax:success', function() {  
+        $(this).closest('tr').fadeOut();      
+});

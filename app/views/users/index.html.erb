@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Users</h1>
+
+
+<!-- http://edgeguides.rubyonrails.org/working_with_javascript_in_rails.html -->
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody id='userbody'>
+    <% @users.each do |user| %>
+      	<%= render(:partial => "user", :locals =>{:user => user}) %>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+<br>
+
+	<fieldset>
+		<legend>New User</legend>		
+		<%= form_for(@user, remote: true ) do |f| %>
+			<%= f.label :name %>
+		  	<%= f.text_field :name %>
+		  	<%= f.submit %>
+		<% end %>
+	</fieldset>
+<br>
+
+<%= link_to 'New User', new_user_path %>
