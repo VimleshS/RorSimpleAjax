@@ -1,0 +1,6 @@
+<% user.errors.messages.each do |key, value| %>
+<ul>
+	<li> <%= key %></li>
+	<li> <%= value.to_s %></li>
+</ul>
+<%end%>

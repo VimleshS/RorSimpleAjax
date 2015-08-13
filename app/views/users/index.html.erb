@@ -1,8 +1,12 @@
 <p id="notice"><%= notice %></p>
+<% if flash[:error] -%>
+  <p class="error"><%= flash[:error] %></p>
+<% end -%>
+
+<div id="myerror" style="color: red">
+</div>
 
 <h1>Listing Users</h1>
-
-
 <!-- http://edgeguides.rubyonrails.org/working_with_javascript_in_rails.html -->
 <table>
   <thead>
@@ -32,4 +36,4 @@
 	</fieldset>
 <br>
 
-<%= link_to 'New User', new_user_path %>
+<!-- <%= link_to 'New User', new_user_path %> -->

@@ -1,1 +1,13 @@
-$("<%= escape_javascript(render @user) %>").appendTo("#userbody");
+<!-- <%#  alert("In create.js.erb file") %> -->
+<% begin %>
+	<%if !@user.errors.any? %>
+		$("<%= escape_javascript(render @user) %>").appendTo("#userbody");
+		$("#myerror").empty();
+		$("#user_name").val('');		
+	 <% else %>
+	 	$("#myerror").empty();
+		$("<%= escape_javascript(render(:partial => "myerror", :locals =>{:user => @user})) %>").appendTo("#myerror");
+	 <% end %> 
+<% rescue Exception  => e %>
+	alert ("e.message")
+<% end %>
